@@ -1,41 +1,43 @@
 package hu.springbootrestfuljpa.books.model;
 
-import lombok.Data;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 import net.minidev.json.annotate.JsonIgnore;
-
-import javax.persistence.*;
-
 
 @Entity
 public class Review {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+	@Id
+	@GeneratedValue
+	private Integer id;
 
-    private String description;
+	private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
-    private Book book;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	private Book book;
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public void setBook(Book book) {
-        this.book = book;
-    }
+	public void setBook(Book book) {
+		this.book = book;
+	}
 }

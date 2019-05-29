@@ -13,17 +13,57 @@ import java.util.List;
 @Entity
 public class Book {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+	@Id
+	@GeneratedValue
+	private Integer id;
 
-    private String author;
+	private String author;
 
-    private Integer release;
+	public Integer getId() {
+		return id;
+	}
 
-    private String title;
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    @OneToMany(mappedBy = "book")
-    private List<Review> reviews;
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public Integer getRelease() {
+		return release;
+	}
+
+	public void setRelease(Integer release) {
+		this.release = release;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	private Integer release;
+
+	private String title;
+
+	@OneToMany(mappedBy = "book")
+	private List<Review> reviews;
 
 }
